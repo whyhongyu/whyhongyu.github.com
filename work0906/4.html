@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Examples</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link href="" rel="stylesheet">
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.txt{
+			width: 300px;
+			height: 100px;
+			font-size: 80px;
+			line-height: 100px;
+			text-align: center;
+			position: absolute;
+			left: 600px;
+			top: 400px;
+			margin: auto;
+			text-shadow: 0 0 0 #000;
+		}
+		.sun{
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			background: #ffff00;
+			position: absolute;
+			box-shadow:0 0 100px #ffff00;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oTxt=document.querySelector('.txt');
+			var oSun=document.querySelector('.sun');
+
+			document.onmousemove=function(ev){
+				var x=ev.pageX;
+				var y=ev.pageY;
+				oSun.style.left=x-oSun.offsetWidth/2+'px';
+				oSun.style.top=y-oSun.offsetHeight/2+'px';
+				//字体的中心减去太阳的中心
+				document.title=oTxt.offsetTop;
+				
+				var a=oTxt.offsetLeft+oTxt.offsetWidth/2-ev.pageX;
+				var b=oTxt.offsetTop+oTxt.offsetHeight/2-ev.pageY;
+
+				oTxt.style.textShadow=''+a+'px '+b+'px '+Math.sqrt(b*b+a*a)/30+'px #000';
+			};
+		};
+	</script>
+</head>
+<body>
+	<div class="txt">韦宏宇</div>
+	<div class="sun"></div>
+</body>
+</html>
