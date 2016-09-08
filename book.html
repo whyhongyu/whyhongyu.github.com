@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Examples</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link href="" rel="stylesheet">
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background:url(img/aaa.jpg);
+			background-size: 100%;
+		}
+		.box{
+			width: 1024px;
+			height: 768px;
+			background-image: url(img/a0.jpg);
+			background-size:100%; 
+			position: relative;
+			margin: 200px auto;
+			box-shadow:0 0 100px #fff;
+		}
+		.page{
+			width: 50%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			-webkit-transition:0.5s all ease;
+			-webkit-transform-origin:left;
+			-webkit-transform-style:preserve-3d; 
+			-webkit-transform: perspective(800px) rotateY(0deg);
+			z-index: 1;
+		}
+		.front{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: url(img/a0.jpg) right top no-repeat; 
+			-webkit-transform:translateZ(0px);
+		}
+		.verso{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: url(img/a1.jpg) left top no-repeat;
+			-webkit-transform:translateZ(-1px) scale(-1,1);
+
+		}
+		.bm{
+			width: 50%;
+			height: 100%;
+			background:url(img/a1.jpg) right;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+		/*.box:active .page{
+			-webkit-transform: perspective(800px) rotateY(-180deg);
+		}*/
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oBox=document.querySelector('.box');
+			var oPage=document.querySelector('.page');
+			var oFront=document.querySelector('.front');
+			var oVerso=document.querySelector('.verso');
+			var oBm=document.querySelector('.bm');
+			var iNow=0;
+			var bOk=false;
+			oBox.onclick=function(){
+
+				if (bOk) {
+					return;
+				}
+				bOk=true;
+				iNow++;
+				
+				oPage.style.WebkitTransform='perspective(800px) rotateY(-180deg)';
+				oPage.style.WebkitTransition='0.5s all ease';
+				oPage.addEventListener('transitionend',addEnd,false);
+
+				function addEnd(){
+					oPage.removeEventListener('transitionend',addEnd,false);
+					oFront.style.backgroundImage=oBox.style.backgroundImage='url(img/a'+(iNow%11)+'.jpg)';
+					oPage.style.WebkitTransform='perspective(800px) rotateY(0deg)';
+					oPage.style.WebkitTransition='none';
+					oBm.style.backgroundImage=oVerso.style.backgroundImage='url(img/a'+(iNow%11+1)%11+'.jpg)';
+					bOk=false;
+				}
+				
+
+			};
+		};
+	</script>
+</head>
+<body>
+	<div class="box">
+		<div class="page">
+			<div class="front"></div>
+			<div class="verso"></div>
+		</div>
+		<div class="bm"></div>
+	</div>
+</body>
+</html>
