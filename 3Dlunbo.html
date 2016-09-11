@@ -12,9 +12,7 @@
 			margin: 0;
 			padding: 0;
 		}
-		html,body{
-			overflow: hidden;
-		}
+		
 		body{
 			background: url(img/aaa.jpg) no-repeat;
 			background-size: 100%;
@@ -30,7 +28,7 @@
 		.box{
 			height: 800px;
 			position: relative;
-			margin: 80px auto;
+			margin: 80px auto 0;
 		}
 		.left_btn{
 			position: absolute;
@@ -61,7 +59,7 @@
 			opacity: 0;
 			-webkit-transition:0.5s all ease;
 			background-size: 100%;
-			box-shadow:10px 0 260px 50px #00ffff;
+			box-shadow:10px 0px 260px 50px #00ffff;
 		}
 		.l1{
 			-webkit-transform: translate(-400px,0) rotateY(45deg);
@@ -81,6 +79,22 @@
 		}
 		.r2{
 			-webkit-transform: translate(450px,0) rotateY(-90deg);
+		}
+		.index{
+			width: 100px;
+			height: 30px;
+			
+			border-radius: 20px;
+			margin: auto;
+			overflow: hidden;
+		}
+		.index a{
+			display: block;
+			line-height: 30px;
+			text-align: center;
+			background: aqua;
+			text-decoration: none;
+			color: #ccc;
 		}
 	</style>
 	<script type="text/javascript">
@@ -144,6 +158,9 @@
 			<li></li>
 			<li></li>
 		</ul>
+	</div>
+	<div class="index">
+		<a href="https://whyhongyu.github.io">返回首页</a>
 	</div>
 </body>
 </html>

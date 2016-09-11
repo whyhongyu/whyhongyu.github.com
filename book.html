@@ -15,6 +15,8 @@
 		body{
 			background:url(img/aaa.jpg);
 			background-size: 100%;
+			position: relative;
+			overflow: hidden;
 		}
 		.box{
 			width: 1024px;
@@ -22,7 +24,7 @@
 			background-image: url(img/CoverPictures.jpg);
 			background-size:100%; 
 			position: relative;
-			margin: 200px auto;
+			margin: 100px auto 50px;
 			box-shadow:0 0 100px #fff;
 		}
 		.page{
@@ -87,6 +89,22 @@
 		/*.box:active .page{
 			-webkit-transform: perspective(800px) rotateY(-180deg);
 		}*/
+		.index{
+			width: 100px;
+			height: 30px;
+			
+			border-radius: 20px;
+			margin: auto;
+			overflow: hidden;
+		}
+		.index a{
+			display: block;
+			line-height: 30px;
+			text-align: center;
+			background: aqua;
+			text-decoration: none;
+			color: #ccc;
+		}
 	</style>
 	<script type="text/javascript">
 		window.onload=function(){
@@ -135,6 +153,9 @@
 			<div class="verso"></div>
 		</div>
 		<div class="bm"></div>
+	</div>
+	<div class="index">
+		<a href="https://whyhongyu.github.io">返回首页</a>
 	</div>
 </body>
 </html>

@@ -15,8 +15,13 @@
 		
 		html,body{
 			height: 100%;
+			
 		}
-
+		body{
+			background: url(img/aaa.jpg) no-repeat;
+			background-size:100%;
+			position: relative;
+		}
 		ul{
 			width: 133px;
 			height: 200px;
@@ -28,10 +33,8 @@
 		}
 		.box{
 			overflow: hidden;
-			height: 100%;
+			height: 90%;
 			position: relative;
-			background: url(img/aaa.jpg) no-repeat;
-			background-size:100%;
 		}
 		.box ul li{
 			width: 133px;
@@ -40,6 +43,22 @@
 			left:0;
 			top: 0;
 			-webkit-transform:rotateY(0) translateZ(0);
+		}
+		.index{
+			width: 100px;
+			height: 30px;
+			
+			border-radius: 20px;
+			margin: auto;
+			overflow: hidden;
+		}
+		.index a{
+			display: block;
+			line-height: 30px;
+			text-align: center;
+			background: aqua;
+			text-decoration: none;
+			color: #ccc;
 		}
 	</style>
 	<script type="text/javascript">
@@ -133,6 +152,9 @@
 				<img src="img/11.jpg">
 			</li>
 		</ul>
+	</div>
+	<div class="index">
+		<a href="https://whyhongyu.github.io">返回首页</a>
 	</div>
 </body>
 </html>
