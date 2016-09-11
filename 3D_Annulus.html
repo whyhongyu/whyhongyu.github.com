@@ -15,7 +15,7 @@
 		
 		html,body{
 			height: 100%;
-			overflow-x: hidden;
+			
 		}
 		body{
 			background: url(img/aaa.jpg) no-repeat;
@@ -28,8 +28,13 @@
 			position: relative;
 			margin: 300px auto;
 			list-style: none;
-			-webkit-transform-style: preserve-3d;
-			-webkit-transform:perspective(800px) rotateX(0deg) rotateY(0deg);
+			-webkit-transform-style:preserve-3d;
+			-moz-transform-style:preserve-3d;
+			-ms-transform-style:preserve-3d;
+			-webkit-transform:perspective(800px) rotateX(0deg) rotateY(0deg);;
+			-moz-transform:perspective(800px) rotateX(0deg) rotateY(0deg);;
+			-ms-transform:perspective(800px) rotateX(0deg) rotateY(0deg);;
+			
 		}
 		.box{
 			overflow: hidden;
@@ -43,6 +48,8 @@
 			left:0;
 			top: 0;
 			-webkit-transform:rotateY(0) translateZ(0);
+			-moz-transform:rotateY(0) translateZ(0);
+			-ms-transform:rotateY(0) translateZ(0);
 		}
 		.index{
 			width: 100px;
@@ -66,7 +73,11 @@
 			var aLi=document.querySelectorAll('.box ul li');
 			for (var i = 0; i < aLi.length; i++) {
 				aLi[i].style.WebkitTransition='1s all ease '+(aLi.length-i)*100+'ms';
+				aLi[i].style.MozTransition='1s all ease '+(aLi.length-i)*100+'ms';
+				aLi[i].style.msTransition='1s all ease '+(aLi.length-i)*100+'ms';
 				aLi[i].style.WebkitTransform='rotateY('+(i*360/aLi.length)+'deg) translateZ(400px)';
+				aLi[i].style.MozTransition='rotateY('+(i*360/aLi.length)+'deg) translateZ(400px)';
+				aLi[i].style.msTransition='rotateY('+(i*360/aLi.length)+'deg) translateZ(400px)';
 			}
 			//收回、散开、排列 待做
 			// var x=0;
@@ -93,9 +104,11 @@
 					x=x+a||0;
 					y=y+b||0;
 					oUl.style.WebkitTransform='perspective(800px) rotateY('+(x/20)%360+'deg) rotateX('+(-y/5)%360+'deg)';
+					oUl.style.MozTransform='perspective(800px) rotateY('+(x/20)%360+'deg) rotateX('+(-y/5)%360+'deg)';
+					oUl.style.msTransition='perspective(800px) rotateY('+(x/20)%360+'deg) rotateX('+(-y/5)%360+'deg)';
 					// document.title=x;
 					// document.title=a;
-					console.log(oUl.style.WebkitTransform);
+					// console.log(oUl.style.WebkitTransform);
 				};
 				document.onmouseup=function(){
 					a=x;

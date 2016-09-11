@@ -103,13 +103,21 @@
 				};
 				if(Math.abs(((a+x)/10)%360)>180){
 					oFront.style.WebkitTransform='translateZ(-201px)';
+					oFront.style.MozTransform='translateZ(-201px)';
+					oFront.style.msTransform='translateZ(-201px)';
 				}else{
 					oFront.style.WebkitTransform='translateZ(201px)';
+					oFront.style.MozTransform='translateZ(201px)';
+					oFront.style.msTransform='translateZ(201px)';
 				}
 				if(Math.abs(((-(b+y)/5)%360)>180)){
 					oRear.style.WebkitTransform='translateZ(-201px)';
+					oRear.style.MozTransform='translateZ(-201px)';
+					oRear.style.msTransform='translateZ(-201px)';
 				}else{
 					oRear.style.WebkitTransform='translateZ(201px)';
+					oRear.style.MozTransform='translateZ(201px)';
+					oRear.style.msTransform='translateZ(201px)';
 				}
 				document.onmouseup=function(){
 					x=x+a;
