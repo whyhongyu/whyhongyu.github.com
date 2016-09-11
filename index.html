@@ -152,15 +152,15 @@
 										show();
 										if(_index==0){
 											for (var i = 0; i < aOpusList.length; i++) {
-												aOpusList[i].innerHTML='<a href="'+href.one[i]+'"><img src="'+src.one[i]+'"></a>';
+												aOpusList[i].innerHTML='<a href="'+href.one[i]+'"><img src="'+src.one[i]+'" /></a>';
 											}
 										}else if(_index==1){
 											for (var i = 0; i < aOpusList.length; i++) {
-												aOpusList[i].innerHTML='<a href="'+href.two[i]+'"><img src="'+src.two[i]+'"></a>';
+												aOpusList[i].innerHTML='<a href="'+href.two[i]+'"><img src="'+src.two[i]+'" /></a>';
 											}
 										}else if(_index==2){
 											for (var i = 0; i < aOpusList.length; i++) {
-												aOpusList[i].innerHTML='<a href="'+href.three[i]+'"><img src="'+src.three[i]+'"></a>';
+												aOpusList[i].innerHTML='<a href="'+href.three[i]+'"><img src="'+src.three[i]+'" /></a>';
 											}
 										}
 									}
@@ -174,7 +174,7 @@
 			// var len=Math.ceil(content.length/9);
 
 			var len=0;
-			for(var key in json){
+			for(var key in src){
 				len++;
 			}
 
@@ -190,7 +190,7 @@
 			oPageList.style.width=aPageList.length*40+10+'px';
 			aPageList[0].style.background='aqua';
 			for (var i = 0; i < aOpusList.length; i++) {
-				aOpusList[i].innerHTML='<a href="">'+json.one[i]+'</a>';
+				aOpusList[i].innerHTML='<a href="'+href.one[i]+'"><img src="'+src.one[i]+'" /></a>';
 			}
 			for (var i = 0; i < aPageList.length; i++) {
 				;(function(index){
@@ -223,15 +223,15 @@
 	<div class="box">
 		<div class="opus">
 			<ul class="opusList">
-				<li>1</li>
-				<li>2</li>
-				<li>3</li>
-				<li>4</li>
-				<li>5</li>
-				<li>6</li>
-				<li>7</li>
-				<li>8</li>
-				<li>9</li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
 			</ul>
 		</div>
 		<div class="page">
