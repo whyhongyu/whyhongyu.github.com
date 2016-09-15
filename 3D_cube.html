@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>Examples</title>
 	<meta name="description" content="">
@@ -90,38 +91,44 @@
 			var oRear=document.querySelector('.rear');
 			var x=0;
 			var y=0;
-			var a=0;
-			var b=0;
 			oBox.onmousedown=function(ev){
-				var disX=ev.pageX;
-				var disY=ev.pageY;
-
+				var disX=ev.pageX-x;
+				var disY=ev.pageY-y;
+				console.log(disX+','+x);
 				document.onmousemove=function(ev){
-					a=ev.pageX-disX;
-					b=ev.pageY-disY;
-					oBox.style.WebkitTransform='perspective(800px) rotateY('+((a+x)/10)%360+'deg) rotateX('+(-(b+y)/5)%360+'deg)';
+					x=ev.pageX-disX;
+					y=ev.pageY-disY;
+					// if (Math.abs(x/5)%360>180) {
+						// y=-y;
+					// }
+					// if(Math.abs(y/5)%360>180) {
+						// x=-x;
+					// }
+					oBox.style.WebkitTransform='perspective(800px) rotateX('+-y/5+'deg) rotateY('+x/5+'deg)';
+					document.title=x;
 				};
-				if(Math.abs(((a+x)/10)%360)>180){
-					oFront.style.WebkitTransform='translateZ(-201px)';
-					oFront.style.MozTransform='translateZ(-201px)';
-					oFront.style.msTransform='translateZ(-201px)';
-				}else{
-					oFront.style.WebkitTransform='translateZ(201px)';
-					oFront.style.MozTransform='translateZ(201px)';
-					oFront.style.msTransform='translateZ(201px)';
-				}
-				if(Math.abs(((-(b+y)/5)%360)>180)){
-					oRear.style.WebkitTransform='translateZ(-201px)';
-					oRear.style.MozTransform='translateZ(-201px)';
-					oRear.style.msTransform='translateZ(-201px)';
-				}else{
-					oRear.style.WebkitTransform='translateZ(201px)';
-					oRear.style.MozTransform='translateZ(201px)';
-					oRear.style.msTransform='translateZ(201px)';
-				}
+
+				// if(Math.abs((x/10)%360)>180){
+				// 	oFront.style.WebkitTransform='translateZ(-201px)';
+				// 	oFront.style.MozTransform='translateZ(-201px)';
+				// 	oFront.style.msTransform='translateZ(-201px)';
+				// }else{
+				// 	oFront.style.WebkitTransform='translateZ(201px)';
+				// 	oFront.style.MozTransform='translateZ(201px)';
+				// 	oFront.style.msTransform='translateZ(201px)';
+				// }
+				// if(Math.abs(((-y/5)%360)>180)){
+				// 	oRear.style.WebkitTransform='translateZ(-201px)';
+				// 	oRear.style.MozTransform='translateZ(-201px)';
+				// 	oRear.style.msTransform='translateZ(-201px)';
+				// }else{
+				// 	oRear.style.WebkitTransform='translateZ(201px)';
+				// 	oRear.style.MozTransform='translateZ(201px)';
+				// 	oRear.style.msTransform='translateZ(201px)';
+				// }
+				
 				document.onmouseup=function(){
-					x=x+a;
-					y=y+b;
+					
 					document.onmousemove=null;
 					document.onmouseup=null;
 				};
