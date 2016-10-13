@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>韦宏宇</title>
+	<link rel="stylesheet" href="css/myworks.css" />
+	<link href="favicon.ico" rel="icon" type="image/x-icon" />
+	<script src="js/common.js"></script>
+	<script src="js/move.js"></script>
+	<script src="js/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script> 
+	<script>
+		'use strict';
+		window.onload = function(){
+			var oClock = document.querySelector('#clock');
+			var aImg = oClock.getElementsByTagName('img');
+			function tick(){
+				var oDate = new Date();
+				var h = oDate.getHours();
+				var m = oDate.getMinutes();
+				var s = oDate.getSeconds();
+				var str = toDou(h)+toDou(m)+toDou(s);
+				for(var i=0;i<aImg.length;i++){
+				//aImg[i].style.top=-35*str.charAt(i)+'px';
+				startMove(aImg[i],{top:-35*str.charAt(i)},{time:300});
+			}
+		}
+		tick();
+		setInterval(tick,1000);
+		;(function(){
+			var oScroll = document.getElementById("scrollTop");
+			var oL2 = oScroll.children[0];
+			var oL3 = oScroll.children[1];
+			var oL4 = oScroll.children[2];
+			var bOk = false;
+			var timer = null;
+			function fnScrollTop(ev) {
+				if (bOk) {
+					return
+				}
+				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				if (scrollTop >= 100) {
+					oScroll.style.opacity = 1
+				} else {
+					oScroll.style.opacity = 0
+				}
+			}
+			window.addEventListener("scroll", fnScrollTop, false);
+			window.addEventListener("load", fnScrollTop, false);
+			window.addEventListener("resize", fnScrollTop, false);
+			oScroll.onclick = function() {
+				addClass(this, "on");
+				bOk = true;
+				oScroll.style.WebkitTransition = "0.5s all ease-in";
+				oScroll.style.MozTransition = "0.5s all ease-in";
+				oScroll.style.msTransition = "0.5s all ease-in";
+				oScroll.style.transition = "0.5s all ease-in";
+				setTimeout(function() {
+					oScroll.style.WebkitTransform = "translateY(-3000px)";
+					oScroll.style.MozTransform = "translateY(-3000px)";
+					oScroll.style.msTransform = "translateY(-3000px)";
+					oScroll.style.transform = "translateY(-3000px)";
+				},
+				300);
+				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				var clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+				var start = scrollTop;
+				var iTarget = 0;
+				var dis = iTarget - start;
+				var time = 1000;
+				var count = Math.floor(1000 / 30);
+				var n = 0;
+				timer = setInterval(function() {
+					n++;
+					var a = 1 - n / count;
+					var cur = start + dis * (1 - Math.pow(a, 3));
+					document.documentElement.scrollTop = document.body.scrollTop = cur;
+					if (n == count) {
+						clearInterval(timer);
+						removeClass(oScroll, "on");
+						oScroll.style.WebkitTransition = "";
+						oScroll.style.MozTransition = "";
+						oScroll.style.msTransition = "";
+						oScroll.style.transition = "";
+						oScroll.style.WebkitTransform = "translateY(0)";
+						oScroll.style.MozTransform = "translateY(0)";
+						oScroll.style.msTransform = "translateY(0)";
+						oScroll.style.transform = "translateY(0)";
+						oScroll.style.opacity = 0;
+						bOk = false
+					}
+				},
+				30)
+			};
+			var oTT = document.querySelector(".toptop");
+			oTT.onclick = function() {
+				document.documentElement.scrollTop = document.body.scrollTop = 0
+			}
+		})();
+	};
+</script>
+</head>
+<body>
+	<header>
+		<ul id="clock">
+			<li><img src="img/num.png" /></li>
+			<li><img src="img/num.png" /></li>
+			<li class="dotdot"></li>
+			<li><img src="img/num.png" /></li>
+			<li><img src="img/num.png" /></li>
+			<li class="dotdot"></li>
+			<li><img src="img/num.png" /></li>
+			<li><img src="img/num.png" /></li>
+		</ul>
+		<div class="nav">
+			<ul>
+				<li><a href="index.html"></a></li>
+				<li><a href="index.html"></a></li>
+				<li><a href="index.html"></a></li>
+			</ul>
+		</div>
+		<div class="point">CSS+HTML</div>
+		<div class="hd-bot"></div>
+	</header>
+	<div class="content">
+		<div class="rotLeft rotTop pageBack"></div>
+		<div class="rotRight rotTop pageBack"></div>
+		<div class="container page cn">
+			<section class="main-tit">
+				<h2 class="subtitle">CSS+DIV布局</h2>
+				<h2 class="subtitle"><a href="index.html">首页</a></h2>
+				<h2 class="subtitle"><a href="credit.html">联系我</a></h2>
+				<h2 class="subtitle"><a href="myworks-js.html">Javascript作品页</a></h2>
+				<h2 class="subtitle"><a href="myworks-h5.html">CSS3 & HTML5作品页</a></h2>
+				<h2 class="subtitle"><a href="myworks-h5.html#app">手机端静态页</a></h2>
+				<div class="scissors"></div>
+				<div class="pageTitle">一些静态页面</div>
+				<blockquote><p>之前工作时候切过一些小专题和网页部分内容，所以之后找了一些朋友要了写网站素材，切了一些电商的首页和游戏首页，感觉很不一样，只能说各有各的特点吧。下边列出一些我自己切的首页（没有特意去兼容IE低版本，因为个人比较不喜欢，调起来也较麻烦，而且目前趋势的话还是逐渐淘汰低版本浏览器，不过兼容的调试也不敢怠慢下来）。</p></blockquote>
+			</section>
+			<!-- css -->
+			<section class="main-tit">
+				<div class="scissors"></div>
+				<div class="pageTitle">美丽说首页</div>
+				<blockquote><p>美丽说首页、京东首页和各大电商首页基本一个模子里出来的，所以当时挑了个美女多的网站来着手。^_^</p></blockquote>
+				<div class="web-bg">
+					<a href="websites/meilishuo/index.html" target="_blank"><img src="img/meilishuo.jpg" /></a>
+				</div>
+			</section>
+			<section class="main-tit">
+				<div class="scissors"></div>
+				<div class="pageTitle">360看看首页</div>
+				<blockquote><p>360看看静态页主要是联系了整页面多选项卡</p></blockquote>
+				<div class="web-bg">
+					<a href="websites/360kan/index.html" target="_blank"><img src="img/360.jpg" /></a>
+				</div>
+			</section>
+			<section class="main-tit">
+				<div class="scissors"></div>
+				<div class="pageTitle">剑灵首页</div>
+				<blockquote><p>狂拽酷炫吊炸天，其实都是图片好么，这东西只是做出来成就感高涨！！！！</p></blockquote>
+				<div class="web-bg">
+					<a href="websites/blade-soul/index.html" target="_blank"><img src="img/jianling.jpg" /></a>
+				</div>
+			</section>
+			<section class="main-tit">
+				<div class="scissors"></div>
+				<div class="pageTitle">美团详情页</div>
+				<blockquote><p>美团主页和标准电商首页没什么区别，选出详情页来做是这里边好多细节，比如字体的调控，还有各种小图标的把我，做起来真的挺烦的，但是考验技巧，如果是高版本浏览器做细节，可以考虑用:before和:after伪类替代图标标签。</p></blockquote>
+				<div class="web-bg">
+					<a href="websites/meituan/index.html" target="_blank"><img src="img/meituan.jpg" /></a>
+				</div>
+			</section>
+			<section class="main-tit">
+				<div class="scissors"></div>
+				<div class="pageTitle">OPPO首页</div>
+				<blockquote><p>恩，这个，我就写了写，因为有素材。。。。。</p></blockquote>
+				<div class="web-bg">
+					<a href="websites/OPPO/index.html" target="_blank"><img src="img/oppo.jpg" /></a>
+				</div>
+			</section>
+		</div>
+		<div class="rotLeft rotBottom pageBack"></div>
+		<div class="rotRight rotBottom pageBack"></div>
+	</div>
+	<div id="footer-nav">
+		| <a href="#" class="toptop">Top</a> | 
+		<a href="credit.html">About Me</a> |
+		<a href="mailto:wrw567@126.com" target="_blank">Email</a> |
+		<a href="myworks-js.html">JS</a> |
+		<a href="myworks-css.html">CSS & HTML</a> | 
+		<a href="myworks-h5.html">CSS3 & HTML5</a> |
+	</div>
+	<div id="footer-follow">
+		<a class="footer-follow-element footer-follow-google" href="https://plus.google.com/u/0/" target="_blank" title="Follow me on Google Plus"></a>
+		<a class="footer-follow-element footer-follow-github" href="https://github.com/wangruwei" target="_blank" title="Follow me on GitHub"></a>
+		<a class="footer-follow-element footer-follow-weibo" href="http://weibo.com/2730287783/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="Follow me on Sina Weibo"></a>
+	</div>
+	<footer>
+		<div id="footerImg"></div>
+	</footer>
+	<div id="scrollTop" >
+		<span class="level2"></span>
+		<span class="level3"></span>
+		<span class="level4"></span>
+	</div>
+</body>
+</html>

@@ -1,251 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>作品展示</title>
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	<link href="" rel="stylesheet">
-	<style type="text/css">
-		body,ul,li,ol{
-			margin: 0;padding: 0;
-		}
-		li{
-			list-style: none;
-		}
-		.box{
-			position: relative;
-			width: 1600px;
-			height: 800px;
-			margin: 0 auto;
-			padding-top:100px;
-		}
-		.box .opus{
-			width: 1292px;
-			height: 700px;
-			margin: 0 auto;
-			border:1px solid #000;
-			overflow: hidden;
-
-		}
-		.box .opus .opusList{
-			margin-top:-10px;
-			position: relative;
-		}
-		.box .opus .opusList li{
-			width: 400px;
-			height: 220px;
-			background: red;
-			float:left;
-			margin: 10px 15px;
-		}
-		.box .opus .opusList li a{
-			display: block;
-			width: 400px;
-			height: 220px;
-		}
-		.box .opus .opusList li a img{
-			width: 100%;
-			height: 100%;
-			border:none;
-		}
-		.box .page{
-			width:500px;
-			height: 41px;
-			border:1px solid #000;
-			position: absolute;
-			bottom:0;
-			left: 0;
-			right: 0;
-			margin: 0 auto;
-			padding-top:10px;
-		}
-		.box .page .pageList{
-			position: relative;
-			height: 30px;
-			width: 90px;
-			margin: auto;
-		}
-		.box .page .pageList li{
-			width: 28px;
-			height: 28px;
-			float:left;
-			margin-left: 10px;
-			line-height: 30px;
-			text-align: center;
-			border:1px solid #ccc;
-			color:#666;
-			font-family: "微软雅黑";
-			cursor:pointer;
-			/*background: url(img/one.png) no-repeat;*/
-		}
-	</style>
-	<script type="text/javascript" src="move.js"></script>
-	<script type="text/javascript">
-		window.onload=function(){
-			var oOpus=document.querySelector('.opus');
-			var oOpusList=document.querySelector('.opusList');
-			var aOpusList=document.querySelectorAll('.opusList li');
-			
-			var oPage=document.querySelector('.page');
-			var oPageList=document.querySelector('.pageList');
-
-			// var content=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
-			
-			var href={
-				one:[
-				'https://whyhongyu.github.io/3Dlunbo',
-				'https://whyhongyu.github.io/book',
-				'https://whyhongyu.github.io/3D_Annulus',
-				'https://whyhongyu.github.io/3D_cube',
-				'javascript:;',
-				'javascript:;',
-				'javascript:;',
-				'javascript:;',
-				'javascript:;'],
-				two:['javascript:;','javascript:;','javascript:;','javascript:;','javascript:;','javascript:;','javascript:;','javascript:;','javascript:;'],
-				three:['javascript:;','javascript:;','javascript:;','javascript:;','javascript:;','javascript:;','javascript:;','javascript:;','javascript:;']
-			}
-			// 图片
-			var src={
-				one:['img/one.png','img/one1.png','img/one2.png','img/one3.png','img/0.png','img/0.png','img/0.png','img/0.png','img/0.png'],
-				two:['img/0.png','img/0.png','img/0.png','img/0.png','img/0.png','img/0.png','img/0.png','img/0.png','img/0.png'],
-				three:['img/0.png','img/0.png','img/0.png','img/0.png','img/0.png','img/0.png','img/0.png','img/0.png','img/0.png']
-			}
-			var iNow=0;
-			var bOk=false;
-			var arrOpusL=[];
-			var arrOpusT=[];
-
-			var arrPage=[];
-
-			for (var i = 0; i < aOpusList.length; i++) {
-				arrOpusL.push(aOpusList[i].offsetLeft-15);
-				arrOpusT.push(aOpusList[i].offsetTop-10);
-			}
-			for (var i = 0; i < aOpusList.length; i++) {
-				aOpusList[i].style.position='absolute';
-				aOpusList[i].style.left=arrOpusL[arrOpusL.length-2]+'px';
-				aOpusList[i].style.top=arrOpusT[arrOpusT.length-2]+'px';
-			}
-			function show(){
-				for (var i = 0; i < aOpusList.length; i++) {
-					;(function(index){
-						setTimeout(function(){
-							move(aOpusList[aOpusList.length-index-1],{
-								"left":arrOpusL[aOpusList.length-index-1],
-								"top":arrOpusT[aOpusList.length-index-1]
-							},{
-								"timer":500,
-								"type":'ease-out',
-								"fnComplete":function(){
-									bOk=false;
-								}
-							});
-						},100*i);
-					})(i);
-				}
-			}
-			function scatter(_index){
-				for (var i = 0; i < aOpusList.length; i++) {
-					;(function(index){
-						setTimeout(function(){
-							move(aOpusList[index],{
-								"left":arrOpusL[arrOpusL.length-2],
-								"top":arrOpusT[arrOpusL.length-2]
-							},{
-								"timer":500,
-								"type":'ease-out',
-								"fnComplete":function(){
-									if(index==aOpusList.length-1){
-										show();
-										if(_index==0){
-											for (var i = 0; i < aOpusList.length; i++) {
-												aOpusList[i].innerHTML='<a href="'+href.one[i]+'"><img src="'+src.one[i]+'" /></a>';
-											}
-										}else if(_index==1){
-											for (var i = 0; i < aOpusList.length; i++) {
-												aOpusList[i].innerHTML='<a href="'+href.two[i]+'"><img src="'+src.two[i]+'" /></a>';
-											}
-										}else if(_index==2){
-											for (var i = 0; i < aOpusList.length; i++) {
-												aOpusList[i].innerHTML='<a href="'+href.three[i]+'"><img src="'+src.three[i]+'" /></a>';
-											}
-										}
-									}
-								}
-							});
-						},100*i);
-					})(i);
-				}
-			}
-			show();
-			// var len=Math.ceil(content.length/9);
-
-			var len=0;
-			for(var key in src){
-				len++;
-			}
-
-			for (var i = 0; i < len; i++) {
-				var oLi=document.createElement('li');
-				oLi.innerHTML=i+1;
-				oPageList.appendChild(oLi);
-			}
-			var aPageList=document.querySelectorAll('.pageList li');
-			oPageList.style.width=aPageList.length*40+10+'px';
-			aPageList[0].style.background='aqua';
-			for (var i = 0; i < aOpusList.length; i++) {
-				aOpusList[i].innerHTML='<a href="'+href.one[i]+'"><img src="'+src.one[i]+'" /></a>';
-			}
-			for (var i = 0; i < aPageList.length; i++) {
-				;(function(index){
-					aPageList[i].onclick=function(){
-						if(bOk) {
-							return;
-						}
-						bOk=true;
-						iNow=index;
-						for (var i = 0; i < aPageList.length; i++) {
-							aPageList[i].style.background='';
-						}
-						this.style.background='aqua';
-						scatter(index);
-					};
-					aPageList[i].onmouseover=function(){
-						this.style.background='aqua';
-					};
-					aPageList[i].onmouseout=function(){
-						if(index!=iNow){
-							this.style.background='';
-						}
-					};
-				})(i);
-			}
-		};
-	</script>
+	<meta charset="UTF-8">
+	<title>韦宏宇</title>
+	<link rel="stylesheet" href="css/main.css" />
+	<link href="favicon.ico" rel="icon" type="image/x-icon" />
+	<script src="js/main.js"></script>
 </head>
 <body>
-	<div class="box">
-		<div class="opus">
-			<ul class="opusList">
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
+	<header>
+		<div class="nav-wrap clearfix">
+			<ul class="nav clearfix">
+				<li><a href="javascript:;">首页</a><span class="sub-bar"></span></li>
+				<li><a href="myworks-js.html">JS作品页</a><span class="sub-bar"></span></li>
+				<li><a href="myworks-css.html">CSS作品页</a><span class="sub-bar"></span></li>
+				<li><a href="myworks-h5.html">HTML5作品页</a><span class="sub-bar"></span></li>
+				<li><a href="myworks-h5.html#app">手机端作品页</a><span class="sub-bar"></span></li>
+				<li><a href="credit.html">联系我</a><span class="sub-bar"></li>
 			</ul>
 		</div>
-		<div class="page">
-			<ol class="pageList">
-				
+		<div class="face">
+			<img src="img/my.png" />
+		</div>
+		<h1><p><span>韦</span><span>宏</span><span>宇</span><span> </span><span> </span><span> </span>W<span></span>E<span></span>B<span></span><span>前</span><span>端</span><span>工</span><span>程</span><span>师</span></p></h1>
+		<div class="me-btn left">
+			<a href="credit.html">转到个人信息页</a>
+			<span class="bar top"></span>
+			<span class="bar right"></span>
+			<span class="bar bottom"></span>
+			<span class="bar left"></span>
+		</div>
+		<div class="me-btn right">
+			<a href="myworks-js.html">转到作品页</a>
+			<span class="bar top"></span>
+			<span class="bar right"></span>
+			<span class="bar bottom"></span>
+			<span class="bar left"></span>
+		</div>
+	</header>
+	<section class="sim-show">
+		<h2 class="sim-tit">技能与作品</h2>
+		<p class="sim-info">熟练Javascript jQuery HTML/HTML5 CSS/CSS3</p>
+		<ul class="clearfix">
+			<li class="list">
+				<a href="myworks-css.html">
+					<img src="img/css.jpg" alt="">
+					<div class="opabox">
+						<h2>CSS & HTML</h2>
+						<p>1.理解W3C标准并熟练运用</p>
+						<p>2.精通HTML+CSS标准布局</p>
+						<p>3.能解决个浏览器之间的兼容问题</p>
+					</div>
+				</a>
+			</li>
+			<li class="list">
+				<a href="myworks-js.html">
+					<img src="img/js.jpg" alt="">
+					<div class="opabox">
+						<h2>Javascript</h2>
+						<p>1.熟练掌握js原生、JQuery</p>
+						<p>2.熟练运用ajax、jsonp进行数据交互</p>
+						<p>3.熟练掌握面向对象机制</p>
+					</div>
+				</a>
+			</li>
+			<li class="list">
+				<a href="myworks-h5.html">
+					<img src="img/h5.jpg" alt="">
+					<div class="opabox">
+						<h2>CSS3 & HTML5</h2>
+						<p>1.理解W3C标准并熟练运用</p>
+						<p>2.精通HTML+CSS标准布局</p>
+						<p>3.能解决个浏览器之间的兼容问题</p>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<section class="me">
+		<div class="shadow"></div>
+		<h2>About Me</h2>
+		<div class="me-box">
+			<ul>
+				<li style="opacity:1;">
+					<p>熟练掌握HTML5、CSS3、JavaScript开发</p>
+					<p>熟悉W3C标准与ES规范，熟悉Web语义化</p>
+					<p>熟练掌握盒模型、常用布局以及浏览器和移动设备兼容性</p>
+					<p>有相关网站构建和调试经验，良好的责任心和学习能力，新知识理解快，乐于分享</p>
+					<p>热爱coding</p>
+				</li>
+				<li>
+					<p>能用原生js进行复杂页面的开发</p>
+					<p>熟练运用原生js编写ajax和jsonp函数，进行普通交互和跨域交互</p>
+					<p>同时熟悉jQuery快速开发PC端也面以及运用zepto开发移动端页面</p>
+					<p>思路清晰，思维灵活，能根据不同情况运用不同方法</p>
+				</li>
+				<li>
+					<p>熟悉面向对象思想，能运用面向对象进行开发</p>
+					<p>熟悉HTML5的canvas、svg，能够运用canvas和raphaeljs进行图标制作</p>
+					<p>了解MVC思想，了解angularjs的简单应用</p>
+					<p>了解一些PHP和Mysql数据库技术，对后台也抱有浓厚兴趣</p>
+				</li>
+			</ul>
+			<ol class="clearfix">
+				<li class="on"></li>
+				<li></li>
+				<li></li>
 			</ol>
 		</div>
-	</div>
+	</section>
+	<section class="others">
+		<h2>Please contact me</h2>
+		<h3>TEL: 15010763905</h3>
+		<h3>QQ: 335013821</h3>
+		<h3>WECHAT: 15010763905</h3>
+	</section>
 </body>
 </html>

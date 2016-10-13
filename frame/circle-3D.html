@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>circle-3D</title>
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	body {
+		background: #000;
+	}
+	ul {
+		width: 133px;
+		height: 200px;
+		margin: 200px auto;
+		position: relative;
+		left: 0;
+		top: 0;
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+		-webkit-transform: perspective(800px) rotateX(-30deg) rotateY(45deg);
+		-ms-transform: perspective(800px) rotateX(-30deg) rotateY(45deg);
+		-o-transform: perspective(800px) rotateX(-30deg) rotateY(45deg);
+		transform: perspective(800px) rotateX(-30deg) rotateY(45deg);
+	}
+	li {
+		position: absolute;
+		left: 0;
+		top: 0;
+		box-sizing: border-box;
+		border: 2px solid #ccc;
+		border-radius: 10px;
+	}
+	li img {
+		border-radius: 5px;
+		display: block;
+	}
+	li div span {
+		content: '';
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 230px;
+		width: 133px;
+		height: 200px;
+		background: #fff;
+		-webkit-transform: scale(1,-1);
+		-ms-transform: scale(1,-1);
+		-o-transform: scale(1,-1);
+		transform: scale(1,-1);
+		-webkit-mask: -webkit-linear-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,1));
+		mask: -moz-linear-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,1));
+		opacity: 0.3;
+		border-radius: 5px;
+		display: block;
+		box-sizing: border-box;
+		border: 2px solid #ccc;
+	}
+	</style>
+	<script>
+	'use strict';
+	window.onload = function(){
+		var oUl = document.body.children[0];
+		var aLi = oUl.children;
+		var aImg = oUl.getElementsByTagName('img');
+		var aSpan = oUl.getElementsByTagName('span');
+		for(var i=0;i<aLi.length;i++){
+			aLi[i].style.WebkitTransition = '1s all ease';
+			aLi[i].style.MozTransition = '1s all ease';
+			aLi[i].style.msTransition = '1s all ease';
+			aLi[i].style.transition = '1s all ease';
+			(function(index){
+				aSpan[i].style.background = 'url(img/'+(i+1)+'.jpg)';
+				setTimeout(function(){
+					aLi[index].style.WebkitTransform = 'rotateY('+index*360/aLi.length+'deg) translateZ(350px)';
+					aLi[index].style.MozTransform = 'rotateY('+index*360/aLi.length+'deg) translateZ(350px)';
+					aLi[index].style.msTransform = 'rotateY('+index*360/aLi.length+'deg) translateZ(350px)';
+					aLi[index].style.transform = 'rotateY('+index*360/aLi.length+'deg) translateZ(350px)';
+				},100*(aLi.length-index));
+			})(i);
+		}
+		var degX = -30;
+		var degY = 45;
+		var left = false;
+		var right = false;
+		var top = false;
+		var bottom = false;
+		var iSpeedX = -30;
+		var iSpeedY = 45;
+		var lastX = -30;
+		var lastY = 45;
+		var timer = null;
+		setInterval(function(){
+			if(left){
+				degY -= 3;
+				oUl.style.WebkitTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+				oUl.style.MozTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+				oUl.style.msTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+				oUl.style.transform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+			}
+			if(right){				
+				degY += 3;
+				oUl.style.WebkitTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+				oUl.style.MozTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+				oUl.style.msTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+				oUl.style.transform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+			}
+			if(top){
+				degX += 3;
+				oUl.style.WebkitTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+				oUl.style.MozTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+				oUl.style.msTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+				oUl.style.transform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+			}
+			if(bottom){
+				degX -= 3;
+				oUl.style.WebkitTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+				oUl.style.MozTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+				oUl.style.msTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+				oUl.style.transform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+			}
+		},30);
+		document.onkeydown = function(ev){
+			if(ev.keyCode==37){
+				left = true;
+			}
+			if(ev.keyCode==38){
+				top = true;
+			}
+			if(ev.keyCode==39){
+				right = true;
+			}
+			if(ev.keyCode==40){
+				bottom = true;
+			}
+		};
+		document.onkeyup = function(ev){
+			if(ev.keyCode==37){
+				left = false;
+			}
+			if(ev.keyCode==38){
+				top = false;
+			}
+			if(ev.keyCode==39){
+				right = false;
+			}
+			if(ev.keyCode==40){
+				bottom = false;
+			}
+		};
+		document.onmousedown = function(ev){
+			iSpeedX = degX;
+			iSpeedY = degY;
+			lastX = degX;
+			lastY = degY;
+			console.log(iSpeedX+'---'+iSpeedY);
+			clearInterval(timer);
+			var oldX = ev.clientX/5-degY;
+			var oldY = ev.clientY/5+degX;
+			document.onmousemove = function(ev){
+				var disX = ev.clientX/5-oldX;
+				var disY = ev.clientY/5-oldY;
+				degX = (-disY);
+				degY = disX;
+				oUl.style.WebkitTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+				oUl.style.MozTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+				oUl.style.msTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+				oUl.style.transform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+				iSpeedX = (degX-lastX)*2;
+				iSpeedY = (degY-lastY)*2;
+				lastX = degX;
+				lastY = degY;
+			};
+			document.onmouseup = function(){
+				console.log(iSpeedX+'---'+iSpeedY);
+				document.onmousemove = null;
+				document.onmouseup = null;
+				clearInterval(timer);
+				timer = setInterval(function(){
+					degX += iSpeedX;
+					degY += iSpeedY;
+					iSpeedX *= 0.95;
+					iSpeedY *= 0.95;
+					if(Math.abs(iSpeedX)<1){
+						iSpeedX=0;
+					}
+					if(Math.abs(iSpeedY)<1){
+						iSpeedY=0;
+					}
+					if(iSpeedX==0&&iSpeedY==0){
+						clearInterval(timer);
+					}
+					oUl.style.WebkitTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+					oUl.style.MozTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+					oUl.style.msTransform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+					oUl.style.transform = 'perspective(800px) rotateX('+degX+'deg) rotateY('+degY+'deg)';
+				},30);
+			};
+			return false;
+		};
+	};
+	</script>
+</head>
+<body>
+	<ul>
+		<li><div><img src="img/1.jpg" /><span></span></div></li>
+		<li><div><img src="img/2.jpg" /><span></span></div></li>
+		<li><div><img src="img/3.jpg" /><span></span></div></li>
+		<li><div><img src="img/4.jpg" /><span></span></div></li>
+		<li><div><img src="img/5.jpg" /><span></span></div></li>
+		<li><div><img src="img/6.jpg" /><span></span></div></li>
+		<li><div><img src="img/7.jpg" /><span></span></div></li>
+		<li><div><img src="img/8.jpg" /><span></span></div></li>
+		<li><div><img src="img/9.jpg" /><span></span></div></li>
+		<li><div><img src="img/10.jpg" /><span></span></div></li>
+		<li><div><img src="img/11.jpg" /><span></span></div></li>
+	</ul>
+</body>
+</html>

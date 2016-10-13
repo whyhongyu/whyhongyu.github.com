@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时钟</title>
+	<style>
+	#box {
+		width: 400px;
+		height: 400px;
+		border: 20px solid #09f;
+		border-radius: 50%;
+		box-shadow: inset 0 4px 6px 1px #000;
+		position: relative;
+		margin: 100px auto;
+		background: #F5F5F5;
+	}
+	#box .cir {
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background: #09f;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin-left: -10px;
+		margin-top: -10px;
+		box-shadow: 0 2px 5px #000;
+	}
+	#box .hour {
+		width: 10px;
+		height: 120px;
+		background: #373737;
+		position: absolute;
+		left: 50%;
+		margin-left: -5px;
+		top: 80px;
+		box-shadow: 0 2px 3px #000;
+		-webkit-transform-origin: center 120px;
+		-moz-transform-origin: center 120px;
+		-ms-transform-origin: center 120px;
+		transform-origin: center 120px;
+	}
+	#box .min {
+		width: 6px;
+		height: 150px;
+		background: #373737;
+		position: absolute;
+		left: 50%;
+		margin-left: -3px;
+		top: 50px;
+		box-shadow: 0 2px 3px #000;
+		-webkit-transform-origin: center 150px;
+		-moz-transform-origin: center 150px;
+		-ms-transform-origin: center 150px;
+		transform-origin: center 150px;
+	}
+	#box .sec {
+		width: 4px;
+		height: 170px;
+		background: #CB2222;
+		position: absolute;
+		left: 50%;
+		margin-left: -2px;
+		top: 30px;
+		box-shadow: 0 1px 3px #000;
+		-webkit-transform-origin: center 170px;
+		-moz-transform-origin: center 170px;
+		-ms-transform-origin: center 170px;
+		transform-origin: center 170px;
+		z-index: 10px;
+	}
+	.ruler {
+		width: 4px;
+		height: 15px;
+		background: #373737;
+		position: absolute;
+		left: 50%;
+		top: 1px;
+		margin-left: -2px;
+		box-shadow: 0 1px 0 black;
+		-webkit-transform-origin: center 200px;
+		-moz-transform-origin: center 200px;
+		-ms-transform-origin: center 200px;
+		transform-origin: center 200px;
+	}
+	strong {
+		position: absolute;
+		top: 25px;
+		font-size: 20px;
+		font-family: 'Microsoft Yahei';
+		width: 30px;
+		text-align: center;
+		left: 50%;
+		margin-left: -15px;
+	}
+	</style>
+	<script>
+	'use strict';
+	window.onload = function(){
+		var oBox = document.querySelector('#box');
+		var oHour = oBox.children[0];
+		var oMin = oBox.children[1];
+		var oSec = oBox.children[2];
+		for(var i=0;i<60;i++){
+			var oS = document.createElement('span');
+			oS.className = 'ruler';
+			oBox.appendChild(oS);
+			oS.style.WebkitTransform = 'rotate('+i*6+'deg)';
+			oS.style.MozTransform = 'rotate('+i*6+'deg)';
+			oS.style.transform = 'rotate('+i*6+'deg)';
+			if(i%5==0){
+				oS.style.height = '25px';
+				oS.style.width = '6px';
+				var oNum = document.createElement('strong');
+				oNum.innerHTML = i/5;
+				if(i==0)oNum.innerHTML = 12;
+				oS.appendChild(oNum);
+				oNum.style.WebkitTransform = 'rotate('+i*-6+'deg)';
+				oNum.style.MozTransform = 'rotate('+i*-6+'deg)';
+				oNum.style.transform = 'rotate('+i*-6+'deg)';
+			}
+		}
+		tick();
+		function tick(){
+			var oDate = new Date();
+			oHour.style.WebkitTransform = 'rotate('+(oDate.getHours()+oDate.getMinutes()/60)*360/12+'deg)';
+			oMin.style.WebkitTransform = 'rotate('+(oDate.getMinutes()+oDate.getSeconds()/60)*360/60+'deg)';
+			oSec.style.WebkitTransform = 'rotate('+(oDate.getSeconds())*360/60+'deg)';
+			oHour.style.MozkitTransform = 'rotate('+(oDate.getHours()+oDate.getMinutes()/60)*360/12+'deg)';
+			oMin.style.MozkitTransform = 'rotate('+(oDate.getMinutes()+oDate.getSeconds()/60)*360/60+'deg)';
+			oSec.style.MozkitTransform = 'rotate('+(oDate.getSeconds())*360/60+'deg)';
+			oHour.style.msTransform = 'rotate('+(oDate.getHours()+oDate.getMinutes()/60)*360/12+'deg)';
+			oMin.style.msTransform = 'rotate('+(oDate.getMinutes()+oDate.getSeconds()/60)*360/60+'deg)';
+			oSec.style.msTransform = 'rotate('+(oDate.getSeconds())*360/60+'deg)';
+			oHour.style.transform = 'rotate('+(oDate.getHours()+oDate.getMinutes()/60)*360/12+'deg)';
+			oMin.style.transform = 'rotate('+(oDate.getMinutes()+oDate.getSeconds()/60)*360/60+'deg)';
+			oSec.style.transform = 'rotate('+(oDate.getSeconds()+oDate.getMilliseconds()/1000)*360/60+'deg)';
+		}
+		setInterval(tick,10);
+	};
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div class="hour"></div>
+		<div class="min"></div>
+		<div class="sec"></div>
+		<div class="cir"></div>
+	</div>
+</body>
+</html>

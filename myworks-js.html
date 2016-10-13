@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>韦宏宇</title>
+	<link rel="stylesheet" href="css/myworks.css" />
+	<link href="favicon.ico" rel="icon" type="image/x-icon" />
+	<script src="js/common.js"></script>
+	<script src="js/move.js"></script>
+	<script src="js/myworks.js"></script>
+	<script src="js/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script> 
+</head>
+<body>
+	<header>
+		<ul id="clock">
+			<li><img src="img/num.png" /></li>
+			<li><img src="img/num.png" /></li>
+			<li class="dotdot"></li>
+			<li><img src="img/num.png" /></li>
+			<li><img src="img/num.png" /></li>
+			<li class="dotdot"></li>
+			<li><img src="img/num.png" /></li>
+			<li><img src="img/num.png" /></li>
+		</ul>
+		<div class="nav">
+			<ul>
+				<li><a href="index.html"></a></li>
+				<li><a href="index.html"></a></li>
+				<li><a href="index.html"></a></li>
+			</ul>
+		</div>
+		<div class="point">Javascript</div>
+		<div class="hd-bot"></div>
+	</header>
+	<div class="content">
+		<div class="rotLeft rotTop pageBack"></div>
+		<div class="rotRight rotTop pageBack"></div>
+		<div class="container page cn">
+			<!-- Mac Dock -->
+			<section class="main-tit">
+				<h2 class="subtitle">原生Javascript应用</h2>
+				<h2 class="subtitle"><a href="index.html">首页</a></h2>
+				<h2 class="subtitle"><a href="credit.html">联系我</a></h2>
+				<h2 class="subtitle"><a href="myworks-css.html">CSS & HTML作品页</a></h2>
+				<h2 class="subtitle"><a href="myworks-h5.html">CSS3 & HTML5作品页</a></h2>
+				<h2 class="subtitle"><a href="myworks-h5.html#app">手机端静态页</a></h2>
+				<div class="scissors"></div>
+				<div class="pageTitle">Mac Dock</div>
+				<blockquote><p>模拟Mac底部Dock栏图标的感应效果，通过对鼠标和图标中心的测距来完成感应测试。</p></blockquote>
+			</section>
+			<section id="dock">
+				<div id="dock-box">
+					<img src="img/dock/1.png" width="64" />
+					<img src="img/dock/2.png" width="64" />
+					<img src="img/dock/3.png" width="64" />
+					<img src="img/dock/4.png" width="64" />
+					<img src="img/dock/5.png" width="64" />
+				</div>
+			</section>
+			<section class="main-tit">
+				<div class="scissors"></div>
+				<div class="pageTitle">无缝滚动</div>
+				<blockquote><p>无缝滚动是PC大型网站首页经常要用到的一种效果，遇到过好多同行，喜欢用jQuery插件来实现，不但页面加载速度变慢，而且效果不完美，次无缝滚动也是由纯js原生手写，比较完美（因此页所列项目过多，故没加定时器轮播）。</p></blockquote>
+			</section>
+			<!-- 无缝滚动 -->
+			<section id="scroll1">
+				<ul>
+					<li><img src="img/z1.jpg" /></li>
+					<li><img src="img/z2.jpg" /></li>
+					<li><img src="img/z3.jpg" /></li>
+					<li><img src="img/z4.jpg" /></li>
+				</ul>
+				<ol>
+					<li class="on">0</li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+				</ol>
+				<a href="javascript:;" class="prev"><</a>
+				<a href="javascript:;" class="next">></a>
+			</section>
+			<!-- 照片墙 -->
+			<section class="main-tit">
+				<div class="scissors"></div>
+				<div class="pageTitle">照片墙</div>
+				<blockquote><p>此效果主要运用定位转换，把页面内块的位置获取并给予每个块自己的绝对定位距离，在进行碰撞检测和随机换位操作。</p></blockquote>
+			</section>
+			<section id="picwall">
+				<button class="c-button" type="button">
+					<div class="c-ripple js-ripple">
+						<span class="c-ripple__circle"></span>
+					</div>
+					change
+				</button>
+				<ul>
+					<li><img src="img/cat/1.jpg" /></li>
+					<li><img src="img/cat/2.jpg" /></li>
+					<li><img src="img/cat/3.jpg" /></li>
+					<li><img src="img/cat/4.jpg" /></li>
+					<li><img src="img/cat/5.jpg" /></li>
+					<li><img src="img/cat/6.jpg" /></li>
+					<li><img src="img/cat/7.jpg" /></li>
+					<li><img src="img/cat/8.jpg" /></li>
+					<li><img src="img/cat/9.jpg" /></li>
+				</ul>
+			</section>
+			<!-- 图片轮换 -->
+			<section class="main-tit">
+				<div class="scissors"></div>
+				<div class="pageTitle">图片轮换</div>
+				<blockquote><p>图片轮换，切换重组是运用数组的基础方法来操作数据。</p></blockquote>
+			</section>
+			<section id="poke">
+				<button class="c-button" type="button" id="btn1">
+					<div class="c-ripple js-ripple">
+						<span class="c-ripple__circle"></span>
+					</div>
+					往右面走
+				</button>
+				<button class="c-button" type="button" id="btn2">
+					<div class="c-ripple js-ripple">
+						<span class="c-ripple__circle"></span>
+					</div>
+					往左面走
+				</button>
+				<ul id="RotatePic">
+					<li class="pic1">
+						<a href="javascript:;"><img src="img/rotate/pic1.png" alt="pic1" class="unactive" width="187" /></a><!-- 208 -->
+						<span></span>
+					</li>
+					<li class="pic2">
+						<a href="javascript:;"><img src="img/rotate/pic2.png" alt="pic2" width="208" /></a>
+						<span></span>
+					</li>
+					<li class="pic3">
+						<a href="javascript:;"><img src="img/rotate/pic3.png" alt="pic3" class="unactive" width="187" /></a>
+						<span></span>
+					</li>
+				</ul>
+			</section>
+			<!-- 分块运动 -->
+			<section class="main-tit">
+				<div class="scissors"></div>
+				<div class="pageTitle">分块运动</div>
+				<blockquote><p>点击时候，穿件N行M列个span，来承载当前background，然后运用定时器对不同位置的span赋予不同运动时间，达到切换的视觉效果。</p></blockquote>
+			</section>
+			<section class="splitblock">
+				<button class="c-button" type="button" id="btn1">
+					<div class="c-ripple js-ripple">
+						<span class="c-ripple__circle"></span>
+					</div>
+					切换
+				</button>
+				<div class="box">
+				</div>
+			</section>
+			<!-- iphone -->
+			<section class="main-tit">
+				<div class="scissors"></div>
+				<div class="pageTitle">模拟iphone翻页</div>
+				<blockquote><p>模拟iphone的翻页效果，通过判断各个图片的轴心点，来决定当前页面是否翻页。</p></blockquote>
+			</section>
+			<section id="iphone">
+				<div id="wrap">
+					<ul>
+						<li style="background:url(img/iphone/pic1.jpg) no-repeat;" title=""></li>
+						<li style="background:url(img/iphone/pic2.jpg) no-repeat;" title=""></li>
+						<li style="background:url(img/iphone/pic3.jpg) no-repeat;" title=""></li>
+						<li style="background:url(img/iphone/pic4.jpg) no-repeat;" title=""></li>
+					</ul>
+				</div>
+			</section>
+			<!-- show-bar -->
+			<section class="main-tit">
+				<div class="scissors"></div>
+				<div class="pageTitle">左右拖动切换</div>
+				<blockquote><p>模拟苹果音乐播放器的滑动效果。</p></blockquote>
+			</section>
+			<section id="showbar">
+				<ul>
+					<li><img src="img/showbar/1.jpg" /></li>
+					<li><img src="img/showbar/2.jpg" /></li>
+					<li><img src="img/showbar/3.jpg" /></li>
+					<li><img src="img/showbar/4.jpg" /></li>
+					<li><img src="img/showbar/5.jpg" /></li>
+					<li><img src="img/showbar/6.jpg" /></li>
+					<li><img src="img/showbar/7.jpg" /></li>
+					<li><img src="img/showbar/8.jpg" /></li>
+				</ul>   
+			</section>
+			<!-- 视差效果 -->
+			<section class="main-tit">
+				<div class="scissors"></div>
+				<div class="pageTitle">模拟视差效果</div>
+				<blockquote><p>模拟3D视差效果</p></blockquote>
+			</section>
+			<section id="eye">
+				<ul id="ul_container">
+					<li id="pic1" style="z-index: 3;"><img src="img/eye/1.jpg" /></li>
+					<li id="pic2" style="z-index: 4;"><img src="img/eye/2.jpg" /></li>
+					<li id="pic3" style="z-index: 5;"><img src="img/eye/3.jpg" /></li>
+					<li id="pic4" style="z-index: 4;"><img src="img/eye/4.jpg" /></li>
+					<li id="pic6" style="z-index: 3;"><img src="img/eye/5.jpg" /></li>
+					<li id="pic7" style="z-index: 2;"><img src="img/eye/6.jpg" /></li>
+					<li id="pic8" style="z-index: 5;"><img src="img/eye/7.jpg" /></li>
+					<li id="pic5" style="z-index: 1;"></li>
+				</section>
+				<!-- 手风琴 -->
+				<section class="main-tit">
+					<div class="scissors"></div>
+					<div class="pageTitle">手风琴效果</div>
+					<blockquote><p>手风琴网页头图</p></blockquote>
+				</section>
+				<section id="accordion">
+					<ul>
+						<li><img src="img/accordion/1.jpg" width="600"></li>
+						<li><img src="img/accordion/2.jpg" width="600"></li>
+						<li><img src="img/accordion/3.jpg" width="600"></li>
+						<li><img src="img/accordion/4.jpg" width="600"></li>
+						<li><img src="img/accordion/5.jpg" width="600"></li>
+					</ul>
+				</section>
+				<section class="main-tit">
+					<div class="scissors"></div>
+					<h2 class="subtitle">关于Ajax交互和Jsonp跨域交互</h2>
+					<div class="scissors"></div>
+					<blockquote><p>由于本人没有租用正规网络服务器，没有数据库可用，所以导致自己做的一些交互的项目和小例子没有办法上传到personal website里，下面仅列出自己封装的ajax和jsonp函数。</p></blockquote>
+					<div class="pageTitle">Ajax</div>
+					<div class="highlight">
+						<pre>
+							<code class="language-js" data-lang="js">
+								function json2url(json){
+								var arr = [];
+								json.t = Math.random();
+								for(var name in json){
+								arr.push(name+'='+json[name]);
+							}
+							return arr.join('&');
+						}
+
+						function ajax(json){
+						json = json || {};
+						if(!json.url)return;
+						json.type = json.type || 'get';
+						json.data = json.data || {};
+						if(window.XMLHttpRequest){
+						var oAjax = new XMLHttpRequest();
+					}else{
+					var oAjax = new ActiveXObject('Microsoft.XMLHTTP');
+				}
+				switch(json.type.toLowerCase()){
+				case 'get':
+				oAjax.open('GET',json.url+'?'+json2url(json.data),true);
+				oAjax.send();
+				break;
+				case 'post';
+				oAjax.open('POST',json.url,true);
+				oAjax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+				oAjax.send(json.data);
+				break;
+			}
+			oAjax.onreadystatechange = function(){
+			if(oAjax.readyState==4){
+			if(oAjax.status>=200&&oAjax.status<300||oAjax.status==304){
+			json.fnSucc&json.fnSucc(oAjax.responseText);
+		}else{
+		json.fnFail&&json.fnFail(oAjax.status);
+	}
+}
+};
+}
+</code>
+</pre>
+</div>
+<div class="pageTitle">JSONP</div>
+<div class="highlight">
+	<pre>
+		<code class="language-js" data-lang="js">
+			function jsonp(json){
+			json = json || {};
+			if(!json.url)return;
+			json.data = json.data || {};
+			json.cbName = json.cbName || 'cb';
+			json.data[json.cbName] = 'show'+Math.random();
+			json.data[json.cbName] = json.data[json.cbName].replace(/\./g,'');
+			var arr = [];
+			for(var name in json.data){
+			arr.push(name+'='+encodeURIComponent(json.data[name]));
+		}
+		var str = arr.join('&');
+		var oS = document.createElement('script');
+		var oH = document.getElementsByTagName('head')[0];
+		oS.src = json.url+'?'+str;
+		oH.appendChild(oS);
+		window[json.data[json.cbName]] = function(result){
+		json.success&&json.success(result);
+		oJ.removeChild(oS);
+		window[json.data[json.cbName]] = null;
+	};
+}
+</code>
+</pre>
+</div>
+</section>
+</div>
+<div class="rotLeft rotBottom pageBack"></div>
+<div class="rotRight rotBottom pageBack"></div>
+</div>
+<div id="footer-nav">
+	| <a href="#" class="toptop">Top</a> | 
+	<a href="credit.html">About Me</a> |
+	<a href="mailto:wrw567@126.com" target="_blank">Email</a> |
+	<a href="myworks-js.html">JS</a> |
+	<a href="myworks-css.html">CSS & HTML</a> | 
+	<a href="myworks-h5.html">CSS3 & HTML5</a> |
+</div>
+<div id="footer-follow">
+	<a class="footer-follow-element footer-follow-google" href="https://plus.google.com/u/0/" target="_blank" title="Follow me on Google Plus"></a>
+	<a class="footer-follow-element footer-follow-github" href="https://github.com/wangruwei" target="_blank" title="Follow me on GitHub"></a>
+	<a class="footer-follow-element footer-follow-weibo" href="http://weibo.com/2730287783/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="Follow me on Sina Weibo"></a>
+</div>
+<footer>
+	<div id="footerImg"></div>
+</footer>
+<div id="scrollTop" >
+	<span class="level2"></span>
+	<span class="level3"></span>
+	<span class="level4"></span>
+</div>
+</body>
+</html>

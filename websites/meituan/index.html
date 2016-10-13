@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>美团详情页</title>
+	<link rel="stylesheet" type="text/css" href="css/base.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript">
+	window.onload = function () {
+		// 选择套餐函数
+		var aType = document.getElementsByClassName('bookType')[0].getElementsByTagName('a');
+		for (var i = 0; i < aType.length; i++) {
+			aType[i].onclick = function () {
+				for (var i = 0; i < aType.length; i++) {
+					aType[i].className = '';
+				}
+				this.className = 'selected';
+			}
+		}
+
+		var bookNum = document.getElementsByClassName('numBar')[0];
+		var numAdd = document.getElementsByClassName('jia')[0];
+		var numMin = document.getElementsByClassName('jian')[0];
+		numAdd.onclick = function () {
+			bookNum.value = parseInt(bookNum.value)+1;
+		}
+		numMin.onclick = function () {
+			if (bookNum.value > 0) {
+				bookNum.value = parseInt(bookNum.value)-1;
+			}
+		}
+	}
+
+
+
+</script>
+</head>
+<body>
+	<!-- topNav start -->
+	<div class="topNav clearfix">
+		<h2 class="topNav_class">
+			<a href="#">全部分类</a>
+		</h2>
+		<ul class="topNav_main clearfix">
+			<li>
+				<a href="#">首页</a>
+			</li>
+			<li>
+				<a href="#">身边团购</a>
+			</li>
+			<li>
+				<a href="#">身边外卖</a>
+			</li>
+			<li>
+				<a href="#">今日新单</a>
+			</li>
+			<li>
+				<a href="#">购物</a>
+			</li>
+			<li>
+				<a href="#">商家点评</a>
+			</li>
+			<li>
+				<a href="#">大牌街</a>
+			</li>
+		</ul>
+	</div>
+	<!-- topAdd start -->
+	<div class="topAdd">
+		<a href="#">北京团购</a><span></span>
+		<a href="#">美食团购</a><span></span>
+		<a href="#">烧烤烤肉</a><span></span>
+		<a href="#">丰台区</a><span></span>
+		<a href="#">方庄/蒲黄榆</a><span></span>
+		<a class="addNow" href="#">燕京啤酒花园</a>
+	</div>
+	<!-- wrwMain start -->
+	<div class="wrwMain">
+		<h2 class="mainName">
+			【方庄/蒲黄榆】 燕京啤酒花园
+		</h2>
+		<p class="mainInfo">仅售19.8元！ 价值68元的红烧金枪鱼块1份，提供免费WIFI。中国水产直供超低温金枪鱼。生下消暑撸串圣地，就在燕京啤酒花园</p>
+		<div class="mainShow clearfix">
+			<div class="showLeft">
+				<a class="showImg" href="#">
+					<img src="img/wrw1.jpg" />
+					<ul class="useful">
+						<li class="duotaocan"></li>
+						<li class="xindan"></li>
+						<li class="mianyue"></li>
+					</ul>
+				</a>
+				<div class="toggleImg clearfix">
+					<a href="#">
+						<img src="img/wrw1_sml.jpg" />
+					</a>
+				</div>
+			</div>
+			<div class="showRight">
+				<p class="goodsPrice clearfix">
+					<span class="priceNow"><i>￥</i>19.8</span>
+					<span class="priceOld">￥68<i>2.9折</i></span>
+				</p>
+				<p class="goodsSold clearfix">
+					<span class="soldNum">已售<i>0</i></span>
+					<span class="soldCom">0人评价，暂无评分</span>
+					<a href="#"></a>
+				</p>
+				<div class="goodsShop clearfix">
+					<p class="shopInfo clearfix">
+						<span>商家</span>
+						<a class="shopName" href="#">燕京啤酒花园（体育体育体育体育体育体育体育）</a>
+						<a class="shopAdd" href="#">查看地址/电话</a>
+					</p>
+					<a class="showSale" href="#">手机可用积分抵10元<i></i></a>
+				</div>
+				<div class="goodsTime clearfix">
+					<span class="subName">有效期</span>
+					<span>截止到2014.09.29</span>
+					<span class="subInfo">周末、法定节假日通用</span>
+				</div>
+				<div class="goodsTime border clearfix">
+					<span class="subName">使用时间</span>
+					<span>17:30至次日02:00</span>
+				</div>
+				<div class="goodsBook">
+					<div class="bookType clearfixx">
+						<span class="subName">套餐</span>
+						<a href="javascript:;" class="selected"><i class="dl"></i>2-8人餐30元<i class="dr"></i><i class="select"></i></a>
+						<a href="javascript:;"><i class="dl"></i>2-8人餐19.8元<i class="dr"></i><i class="select"></i></a>
+					</div>
+				</div>
+				<div class="goodsAll clearfix">
+					<span class="subName">数量</span>
+					<p class="clearfix">
+						<span class="jian"></span>
+						<input type="text" class="numBar" value="1"></input>
+						<span class="jia"></span>
+					</p>
+				</div>
+				<div class="goodsBtns clearfix">
+					<input type="button" class="buynow" />
+					<input type="button" class="addcar" />
+					<a href="#" class="collect">收藏(<span>1</span>)</a>
+					<a href="#" class="share">分享到</a>
+				</div>
+				<div class="goodsSer clearfix">
+					<h6>服务承诺</h6>
+					<ul>
+						<li>
+							<a href="#">随时退</a>
+						</li>
+						<li>
+							<a  class="ser2"href="#">过期退</a>
+						</li>
+						<li>
+							<a  class="ser3"href="#">急速退</a>
+						</li>
+						<li>
+							<a  class="ser4"href="#">真实评价</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- wrwOther star -->
+	<div class="wrwOther clearfix">
+		<div class="otherLeft">
+			<h2 class="shopOther">
+				该商家的其他团购
+				<ul class="clearfix">
+					<li>
+						团购价
+					</li>
+					<li>
+						门店价
+					</li>
+					<li>
+						已售
+					</li>
+				</ul>
+			</h2>
+			<div class="otherDetail clearfix">
+				<a href="#" class="otherName">【方庄/蒲黄榆】金枪鱼刺身一份，半斤，提供免费WiFi</a>
+				<ul class="clearfix">
+					<li><b>￥30</b></li>
+					<li>￥108</li>
+					<li>0</li>
+				</ul>
+			</div>
+			<div class="otherNav">
+				<ul class="clearfix">
+					<li>
+						<a class="first blue" href="#">商家位置</a>
+					</li>
+					<li>
+						<a href="#shopRead">购买须知</a>
+					</li>
+					<li>
+						<a href="#shopDet">本单详情</a>
+					</li>
+					<li>
+						<a href="#shangjia">商家介绍</a>
+					</li>
+					<li>
+						<a href="#pingjia">消费评价(0)</a>
+					</li>
+				</ul>
+			</div>
+			<div class="shopLoc">
+				<h4>
+					商家位置
+				</h4>
+				<div class="detailInfo clearfix">
+					<a class="map" href="#">
+						<img src="img/map.jpg" />
+					</a>
+					<div class="detailText">
+						<h6>燕京啤酒花园（体育公园店）</h6>
+						<p class="shopsco">商家累计评分：<span><i></i>暂无评分</span></p>
+						<p class="locadd">
+							地址：<span>丰台区方庄地区浦方路7号西（方庄环岛北100米方庄体育公园东门）</span>
+							<br />
+							<a href="#">查看地图</a>
+							<a href="#">公交/驾车去这里</a>
+						</p>
+						<p class="shopsco">地铁：<span>距蒲黄榆站约734米</span></p>
+						<p class="shopsco">电话：<span>18600682488</span></p>
+					</div>
+				</div>
+			</div>
+			<div class="shopRead" id="shopRead">
+				<h4>
+					购买须知
+				</h4>
+				<div>
+					<table>
+						<tbody>
+							<tr>
+								<td class="tit">有效期</td>
+								<td class="info">2013.1.17至2015.1.16</td>
+							</tr>
+							<tr>
+								<td class="tit">不可用日期</td>
+								<td class="info">2014年1月31日至2月2日、2月14日、5月1日、6月1日、10月1日至10月3日、10月31日至11月1日、12月24日至12月25日、2015年1月1日不可用</td>
+							</tr>
+							<tr>
+								<td class="tit">预约提醒</td>
+								<td class="info">至少提前24小时致电商家预约</td>
+							</tr>
+							<tr>
+								<td class="tit">温馨提示</td>
+								<td class="info">
+									<p>本单在美团使用时间内不限用餐时长</p>
+									<p>每张美团券最多以为成人使用</p>
+									<p>1.4米(含)以下儿童用餐可享受正价的半价优惠，到店支付即可，1.4米以上儿童需独立使用1张美团券</p>
+									<p>仅限食堂，不提供餐前外带和餐后打包</p>
+									<p>仅限大厅就餐，不可使用包间</p>
+									<p>团购用户不可同时享受商家其他优惠</p>
+									<p>部分菜品因时令原因有所不同，请以店内当日实际供应为准</p>
+								</td>
+							</tr>
+							<tr>
+								<td class="tit">商家服务</td>
+								<td class="info">停车位收费标准，停车位问题请咨询商家</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="shopDet" id="shopDet">
+				<h4>本单详情</h4>
+				<h5>美味尽享</h5>
+				<div class="cont clearfix">
+					套餐内容
+					<ul class="clearfix">
+						<li>单价</li>
+						<li class="mid">数量/规格</li>
+						<li>小计</li>
+					</ul>
+				</div>
+				<p class="gInfo clearfix">
+					<span class="gClass">荤菜</span>
+					<span class="gName">红烧金枪鱼块</span>
+					<span class="gPrice">￥68</span>
+					<span class="gNum">1份</span>
+					<span class="gMoneny">￥68</span>
+				</p>
+				<div class="gTotal clearfix">
+					<ul class="clearfix">
+						<li>价值：<span>￥68</span></li>
+						<li>美团价：<span>￥<b>19.8</b></span></li>
+					</ul>
+				</div>
+				<p class="gTip">免费提供纸巾</p>
+				<h5>美团推荐</h5>
+				<p class="foodName">红烧金枪鱼块：<span>红烧做法金枪鱼</span></p>
+				<img class="foodImg" src="img/jinqiangyu.jpg" height="441" width="701" />
+				<h4 id="shangjia">商家介绍</h4>
+				<h5>燕京啤酒花园</h5>
+				<div class="moreImg">
+					<img src="img/more1.jpg" />
+					<p class="shuoming">燕京啤酒花园是大型啤酒花园，休闲椅与啤酒泡沫一起构成的风景在清凉的夏季里别有一番风情。位于蒲黄榆、方庄环岛区域，肉质鲜美，啤酒纯正。</p>
+					<img src="img/more2.jpg" />
+					<img src="img/more3.jpg" />
+					<img src="img/more4.jpg" />
+					<img src="img/more5.jpg" />
+					<img src="img/more6.jpg" />
+				</div>
+				<h4 class="pingjia clearfix" id="pingjia">消费评价<a href="#">我买过此单，<span>我要评价</span></a></h4>
+				<div class="pingjiaCont">
+					<p>暂无消息评分</p>
+				</div>
+				<div class="allCom">
+					全部评价
+					<div class="comClass clearfix">
+						<input type="checkbox" id="youtupian" />
+						<label for="youtupian">有图片</label>
+						<input type="checkbox" checked id="youneirong" />
+						<label for="youneirong">有内容的评价</label>
+						<a href="#">默认</a>
+						<a href="#">按时间<i></i></a>
+					</div>
+				</div>
+				<div class="showCom">暂无该类型评论</div>
+				<div class="qiang">
+					<div class="qPrice hotPrice clearfix">
+						<span>￥</span>
+						19.8
+					</div>
+					<div>
+						<p>门店价</p>
+						<i>￥68</i>
+					</div>
+					<div>
+						<p>折扣</p>
+						<i>2.9折</i>
+					</div>
+					<div>
+						<p>已售</p>
+						<i>0</i>
+					</div>
+					<div class="qiangBtn">
+						<input type="button" class="qianggou" />
+						<input type="button" class="jiaru" />
+					</div>
+				</div>
+				<div class="xingqu">
+					<p>你可能感兴趣的新品团购</p>
+					<ul class="clearfix">
+						<li>
+							<a class="pic" href="#">
+								<img src="img/diaozha.jpg" />
+							</a>
+							<a class="name" href="#">【西单】掉香缘掉渣饼：掉香缘掉渣饼1份</a>
+							<p class="clearfix">
+								<span class="price">￥29.5</span>
+								<span class="num">已售2011</span>
+							</p>
+						</li>
+						<li>
+							<a class="pic" href="#">
+								<img src="img/diaozha.jpg" />
+							</a>
+							<a class="name" href="#">【西单】掉香缘掉渣饼：掉香缘掉渣饼1份</a>
+							<p class="clearfix">
+								<span class="price">￥29.5</span>
+								<span class="num">已售2011</span>
+							</p>
+						</li>
+					</ul>
+				</div>
+				<img src="img/lastpic.jpg" height="376" width="702">
+			</div>
+		</div>
+		<div class="otherRight">
+			<div class="div1">
+				<p class="p1">
+					<a class="a1" href="#">美团手机版</a>
+					<a class="a2" href="#"></a>
+				</p>
+				<p class="p2">
+					<a class="a3" href="#">猫眼电影手机版</a>
+					<a class="a4" href="#"></a>
+				</p>
+			</div>
+			<div class="div2">
+				<h4>热门专题
+					<a class="a1" href="#"></a>
+				</h4>
+				<a href="#">
+					<img src="img/wrw_r.jpg" height="139" width="237">
+				</a>
+			</div>
+			<div class="div3">
+				<h4>美团答疑</h4>
+				<p>
+					<a href="#">本单答疑</a> 丨
+					<a href="#">我要提问</a>
+				</p>
+			</div>
+			<div class="div4">
+				<h4>看过本团购的用户还看了</h4>
+				<ul>
+					<li>
+						<a href="#">
+							<img src="img/wrw_r1.jpg" height="126" width="208">
+						</a>
+						<a class="a1" href="#">[11店通用]摩提工房:摩提工房劲爆来袭!建议2人使用,尽享精致美味...</a>
+						<p class="p3">
+							<span class="sp1">￥29.5</span>
+							<span class="sp2">门店价</span>
+							<span class="sp3">￥42</span>
+							<span class="sp5">2011</span>
+							<span class="sp4">已售</span>
+						</p>
+					</li>
+					<li>
+						<a href="#">
+							<img src="img/wrw_r1.jpg" height="126" width="208">
+						</a>
+						<a class="a1" href="#">[11店通用]摩提工房:摩提工房劲爆来袭!建议2人使用,尽享精致美味...</a>
+						<p class="p3">
+							<span class="sp1">￥29.5</span>
+							<span class="sp2">门店价</span>
+							<span class="sp3">￥42</span>
+							<span class="sp5">2011</span>
+							<span class="sp4">已售</span>
+						</p>
+					</li>
+					<li>
+						<a href="#">
+							<img src="img/wrw_r1.jpg" height="126" width="208">
+						</a>
+						<a class="a1" href="#">[11店通用]摩提工房:摩提工房劲爆来袭!建议2人使用,尽享精致美味...</a>
+						<p class="p3">
+							<span class="sp1">￥29.5</span>
+							<span class="sp2">门店价</span>
+							<span class="sp3">￥42</span>
+							<span class="sp5">2011</span>
+							<span class="sp4">已售</span>
+						</p>
+					</li>
+					<li>
+						<a href="#">
+							<img src="img/wrw_r1.jpg" height="126" width="208">
+						</a>
+						<a class="a1" href="#">[11店通用]摩提工房:摩提工房劲爆来袭!建议2人使用,尽享精致美味...</a>
+						<p class="p3">
+							<span class="sp1">￥29.5</span>
+							<span class="sp2">门店价</span>
+							<span class="sp3">￥42</span>
+							<span class="sp5">2011</span>
+							<span class="sp4">已售</span>
+						</p>
+					</li>
+					<li>
+						<a href="#">
+							<img src="img/wrw_r1.jpg" height="126" width="208">
+						</a>
+						<a class="a1" href="#">[11店通用]摩提工房:摩提工房劲爆来袭!建议2人使用,尽享精致美味...</a>
+						<p class="p3">
+							<span class="sp1">￥29.5</span>
+							<span class="sp2">门店价</span>
+							<span class="sp3">￥42</span>
+							<span class="sp5">2011</span>
+							<span class="sp4">已售</span>
+						</p>
+					</li>
+					<li>
+						<a href="#">
+							<img src="img/wrw_r1.jpg" height="126" width="208">
+						</a>
+						<a class="a1" href="#">[11店通用]摩提工房:摩提工房劲爆来袭!建议2人使用,尽享精致美味...</a>
+						<p class="p3">
+							<span class="sp1">￥29.5</span>
+							<span class="sp2">门店价</span>
+							<span class="sp3">￥42</span>
+							<span class="sp5">2011</span>
+							<span class="sp4">已售</span>
+						</p>
+					</li>
+					<li>
+						<a href="#">
+							<img src="img/wrw_r1.jpg" height="126" width="208">
+						</a>
+						<a class="a1" href="#">[11店通用]摩提工房:摩提工房劲爆来袭!建议2人使用,尽享精致美味...</a>
+						<p class="p3">
+							<span class="sp1">￥29.5</span>
+							<span class="sp2">门店价</span>
+							<span class="sp3">￥42</span>
+							<span class="sp5">2011</span>
+							<span class="sp4">已售</span>
+						</p>
+					</li>
+					<li>
+						<a href="#">
+							<img src="img/wrw_r1.jpg" height="126" width="208">
+						</a>
+						<a class="a1" href="#">[11店通用]摩提工房:摩提工房劲爆来袭!建议2人使用,尽享精致美味...</a>
+						<p class="p3">
+							<span class="sp1">￥29.5</span>
+							<span class="sp2">门店价</span>
+							<span class="sp3">￥42</span>
+							<span class="sp5">2011</span>
+							<span class="sp4">已售</span>
+						</p>
+					</li>
+					<li>
+						<a href="#">
+							<img src="img/wrw_r1.jpg" height="126" width="208">
+						</a>
+						<a class="a1" href="#">[11店通用]摩提工房:摩提工房劲爆来袭!建议2人使用,尽享精致美味...</a>
+						<p class="p3">
+							<span class="sp1">￥29.5</span>
+							<span class="sp2">门店价</span>
+							<span class="sp3">￥42</span>
+							<span class="sp5">2011</span>
+							<span class="sp4">已售</span>
+						</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
